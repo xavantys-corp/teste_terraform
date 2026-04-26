@@ -1,4 +1,13 @@
 terraform {
+  backend "s3" {
+    bucket         = "tfstate-github-actions"
+    key            = "terraform.tfstate"
+    region         = "us-east-1"
+    encrypt        = true
+    # Se você não criou a tabela DynamoDB ainda, comente a linha abaixo:
+    # dynamodb_table = "terraform-state-lock"
+  }
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
