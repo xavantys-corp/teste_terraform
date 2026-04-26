@@ -1,4 +1,4 @@
- 1 name: "Terraform Destroy"
+    1 name: "Terraform Destroy"
     2 on:
     3   workflow_dispatch:
     4 jobs:
