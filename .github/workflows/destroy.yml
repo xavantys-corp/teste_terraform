@@ -1,16 +1,16 @@
-    1 name: "Terraform Destroy"
-    2 on:
-    3   workflow_dispatch:
-    4 jobs:
-    5   terraform-destroy:
-    6     runs-on: ubuntu-latest
-    7     steps:
-    8       - uses: actions/checkout@v4
-    9       - uses: aws-actions/configure-aws-credentials@v4
-   10         with:
-   11           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-   12           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-   13           aws-region: us-east-1
-   14       - uses: hashicorp/setup-terraform@v3
-   15       - run: terraform init
-   16       - run: terraform destroy -auto-approve
+name: "Terraform Destroy"
+on:
+       workflow_dispatch:
+     jobs:
+       terraform-destroy:
+         runs-on: ubuntu-latest
+         steps:
+           - uses: actions/checkout@v4
+           - uses: aws-actions/configure-aws-credentials@v4
+            with:
+              aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+              aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+              aws-region: us-east-1
+          - uses: hashicorp/setup-terraform@v3
+          - run: terraform init
+          - run: terraform destroy -auto-approve
